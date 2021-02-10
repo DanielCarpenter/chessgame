@@ -1,5 +1,9 @@
 # chessgame
-> Here goes your awesome project description!
+
+> Daniel Carpenter, Francisco Martell, Patrick Stanley, Logan Hodgins
+> We are creating an online chess game to play with friends
+> Chess enthusiasts in quarantine.  People who are bored and want to learn a new game.
+> We do this to Facilitate connections through chess.  Finding ways to connect people through problem solving and chess logic and build upon those connections.
 
 ## Table of contents
 * [General info](#general-info)
