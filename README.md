@@ -1,9 +1,8 @@
-# chessgame
+# Chessgame
 
-> Daniel Carpenter, Francisco Martell, Patrick Stanley, Logan Hodgins
-> We are creating an online chess game to play with friends
-> Chess enthusiasts in quarantine.  People who are bored and want to learn a new game.
-> We do this to Facilitate connections through chess.  Finding ways to connect people through problem solving and chess logic and build upon those connections.
+> Chessgame is an online browser-based chess game of the future, intended for chess enthusiasts and beginners.
+> Our web app will impact the world by connecting different people through a friendly game of chess.
+> It is made by Logan Hodgins, Daniel Carpenter, Francisco Martell, and Patrick Stanley.
 
 ## Table of contents
 * [General info](#general-info)
@@ -22,9 +21,8 @@ Add more general information about project. What the purpose of the project is? 
 ![Example screenshot](./img/screenshot.png)
 
 ## Technologies
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
+* Frontend is made with CSS, HTML, and Javascript using React
+* Backend is made with Python using Django
 
 ## Setup
 Describe how to install / setup your local environement / add link to demo version.
@@ -34,17 +32,17 @@ Show examples of usage:
 `put-your-code-here`
 
 ## Features
-List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+List of features ready and TODOs for future development:
+* Easy Invitation: Our game will allow you to easily invite your friends to a game of chess. This feature will finally allow you to easily play with your friends stuck in quarantine.
+* Consistent UI: Chessgame looks great on both the browser and on mobile. This means you will be able to take your chess game with you wherever you go.
+* Challenging AI: Chessgame provides an AI that will challenge your chess skills. Don't cry if you have no one to play with :(, with the AI, friends aren't needed.
 
 To-do list:
 * Wow improvement to be done 1
 * Wow improvement to be done 2
 
 ## Status
-Project is: _in progress_, _finished_, _no longer continue_ and why?
+Project is: _in progress_
 
 ## Inspiration
 Add here credits. Project inspired by..., based on...
