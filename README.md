@@ -18,7 +18,7 @@
 Add more general information about project. What the purpose of the project is? Motivation?
 
 ## Screenshots
-![Example screenshot](./img/screenshot.png)
+![<img src="https://cdn.pixabay.com/photo/2016/07/12/11/39/checkmate-1511866_960_720.jpg">](https://cdn.pixabay.com/photo/2016/07/12/11/39/checkmate-1511866_960_720.jpg)
 
 ## Technologies
 * Frontend is made with CSS, HTML, and Javascript using React
@@ -33,6 +33,7 @@ Show examples of usage:
 
 ## Features
 List of features ready and TODOs for future development
+To-do list:
 
 * Easy Invitation: Our game will allow you to easily invite your friends to a game of chess. This feature will finally allow you to easily play with your friends stuck in quarantine.
 
@@ -40,15 +41,11 @@ List of features ready and TODOs for future development
 
 * Challenging AI: Chessgame provides an AI that will challenge your chess skills. Don't cry if you have no one to play with :(, with AI, friends aren't needed.
 
-To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
-
 ## Status
 Project is: _in progress_
 
 ## Inspiration
-Add here credits. Project inspired by..., based on...
+This project was inspired by Chess.com
 
 ## Contact
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Created by: Logan Hodgins, Daniel Carpenter, Francisco Martell, and Patrick Stanley.
