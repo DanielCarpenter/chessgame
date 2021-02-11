@@ -32,10 +32,13 @@ Show examples of usage:
 `put-your-code-here`
 
 ## Features
-List of features ready and TODOs for future development:
+List of features ready and TODOs for future development
+
 * Easy Invitation: Our game will allow you to easily invite your friends to a game of chess. This feature will finally allow you to easily play with your friends stuck in quarantine.
+
 * Consistent UI: Chessgame looks great on both the browser and on mobile. This means you will be able to take your chess game with you wherever you go.
-* Challenging AI: Chessgame provides an AI that will challenge your chess skills. Don't cry if you have no one to play with :(, with the AI, friends aren't needed.
+
+* Challenging AI: Chessgame provides an AI that will challenge your chess skills. Don't cry if you have no one to play with :(, with AI, friends aren't needed.
 
 To-do list:
 * Wow improvement to be done 1
