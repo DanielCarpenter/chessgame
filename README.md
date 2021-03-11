@@ -21,7 +21,7 @@ Add more general information about project. What the purpose of the project is? 
 ![<img src="https://cdn.pixabay.com/photo/2016/07/12/11/39/checkmate-1511866_960_720.jpg">](https://cdn.pixabay.com/photo/2016/07/12/11/39/checkmate-1511866_960_720.jpg)
 
 ## Technologies
-* Frontend is made with CSS, HTML, and Javascript using React
+* Frontend is made with CSS, HTML, and Javascript
 * Backend is made with Python using Django
 
 ## Setup
