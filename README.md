@@ -1,5 +1,19 @@
 # Chessgame
 
+## Documentation for completed tasks for sprint 1
+* Task 14 & Task 29: We determined we're not doing a database to store user information.
+
+* Task 10: We determined we will not be creating a custom ML algorithm for the chess AI.
+
+* Task 35 & Task 30 & Task 31: Studied Django using tutorial posted in slack.
+
+* Task 24: Found a basic color palette for the frontend.
+
+* Task 17: Learned about board logic and how to win chess using online tutorial.
+
+* Task 21: Planned tutorial section in Zoom call.
+
+
 > Chessgame is an online browser-based chess game of the future, intended for chess enthusiasts and beginners.
 > Our web app will impact the world by connecting different people through a friendly game of chess.
 > It is made by Logan Hodgins, Daniel Carpenter, Francisco Martell, and Patrick Stanley.
