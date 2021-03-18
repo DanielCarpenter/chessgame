@@ -1,5 +1,8 @@
 # Chessgame
 
+## How to run web server
+* For Windows Subsystem for Linux & Ubuntu: ```python3 manage.py runserver```
+
 ## Documentation for completed tasks for sprint 1
 * Task 14 & Task 29: We determined we're not doing a database to store user information.
 
