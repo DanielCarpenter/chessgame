@@ -1,6 +1,6 @@
 # Chessgame
 
-## How to run web server
+## How to run django web server
 * For Windows Subsystem for Linux & Ubuntu: ```python3 manage.py runserver```
 
 ## Documentation for completed tasks for sprint 1
