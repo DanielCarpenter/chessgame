@@ -7,7 +7,7 @@ team's accomplishment:
 
 * Logan Hodgins:  
 
-* Daniel Carpenter:  Initial django app and phaser.js set up
+* Daniel Carpenter:  Initial django app and phaser.js set up, this artiface is used on the home page of the app and will be the backbone of running the chess game graphics and logic. (https://bitbucket.org/cs3398s21borgs/chessgame/commits/56d3a6b5e92651a2e08c4e911d13bb44449bd6da)
 
 * Francisco Martell:  
 
@@ -16,7 +16,7 @@ team's next step:
 
 * Logan Hodgins: Implement chess logic
 
-* Daniel Carpenter: Graphics for game
+* Daniel Carpenter: Graphics for game using phaser
 
 * Francisco Martell: Special effects and Sound
 
