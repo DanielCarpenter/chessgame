@@ -1,5 +1,15 @@
 # Chessgame
 
+## Status
+Project is: _in progress_, team's next step:
+
+* Logan Hodgins: Implement chess logic
+
+* Daniel Carpenter: Graphics for game
+
+* Francisco Martell: Special effects and Sound
+
+
 ## How to run django web server
 * For Windows Subsystem for Linux & Ubuntu: ```python3 manage.py runserver```
 
@@ -57,9 +67,6 @@ To-do list:
 * Consistent UI: Chessgame looks great on both the browser and on mobile. This means you will be able to take your chess game with you wherever you go.
 
 * Challenging AI: Chessgame provides an AI that will challenge your chess skills. Don't cry if you have no one to play with :(, with AI, friends aren't needed.
-
-## Status
-Project is: _in progress_
 
 ## Inspiration
 This project was inspired by Chess.com
