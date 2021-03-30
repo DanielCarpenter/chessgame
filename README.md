@@ -5,9 +5,9 @@ Project is: _in progress_,
 
 team's accomplishment:
 
-* Logan Hodgins:  
+* Logan Hodgins: Created Django web server, this artifact sends the home page to the client when an HTTP get request is made. (https://bitbucket.org/cs3398s21borgs/chessgame/commits/65414aaaa46cf4a32e37cd013605eead7ea8412c), and (https://bitbucket.org/cs3398s21borgs/chessgame/commits/ae071d8b1e2aa68ae15916e2888463744704e0bd)
 
-* Daniel Carpenter:  Initial django app and phaser.js set up, this artiface is used on the home page of the app and will be the backbone of running the chess game graphics and logic. (https://bitbucket.org/cs3398s21borgs/chessgame/commits/56d3a6b5e92651a2e08c4e911d13bb44449bd6da)
+* Daniel Carpenter:  Initial django app and phaser.js set up, this artifact is used on the home page of the app and will be the backbone of running the chess game graphics and logic. (https://bitbucket.org/cs3398s21borgs/chessgame/commits/56d3a6b5e92651a2e08c4e911d13bb44449bd6da)
 
 * Francisco Martell:  
 
