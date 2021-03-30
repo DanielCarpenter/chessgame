@@ -1,7 +1,18 @@
 # Chessgame
 
 ## Status
-Project is: _in progress_, team's next step:
+Project is: _in progress_, 
+
+team's accomplishment:
+
+* Logan Hodgins:  
+
+* Daniel Carpenter:  Initial django app and phaser.js set up
+
+* Francisco Martell:  
+
+
+team's next step:
 
 * Logan Hodgins: Implement chess logic
 
