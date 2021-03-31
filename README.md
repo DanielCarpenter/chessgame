@@ -9,7 +9,7 @@ team's accomplishment:
 
 * Daniel Carpenter:  Initial django app and phaser.js set up, this artifact is used on the home page of the app and will be the backbone of running the chess game graphics and logic. (https://bitbucket.org/cs3398s21borgs/chessgame/commits/56d3a6b5e92651a2e08c4e911d13bb44449bd6da)
 
-* Francisco Martell:  Created the icons that will be used for the game. (https://bitbucket.org/cs3398s21borgs/chessgame/commits/b795dc2a049061f7fea62c9864cf9cad45bc971e)
+* Francisco Martell:  Created the icons that will be used for the game. Beautiful set of imperfect sketch themed icons will be the first icons to be used for the King, Queen, Bishop, Rook and Pawn!  (https://bitbucket.org/cs3398s21borgs/chessgame/commits/b795dc2a049061f7fea62c9864cf9cad45bc971e)
 
 
 team's next step:
