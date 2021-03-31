@@ -1,5 +1,26 @@
 # Chessgame
 
+## Status
+Project is: _in progress_, 
+
+team's accomplishment:
+
+* Logan Hodgins: Created Django web server, this artifact sends the home page to the client when an HTTP get request is made. (https://bitbucket.org/cs3398s21borgs/chessgame/commits/65414aaaa46cf4a32e37cd013605eead7ea8412c), and (https://bitbucket.org/cs3398s21borgs/chessgame/commits/ae071d8b1e2aa68ae15916e2888463744704e0bd)
+
+* Daniel Carpenter:  Initial django app and phaser.js set up, this artifact is used on the home page of the app and will be the backbone of running the chess game graphics and logic. (https://bitbucket.org/cs3398s21borgs/chessgame/commits/56d3a6b5e92651a2e08c4e911d13bb44449bd6da)
+
+* Francisco Martell:  
+
+
+team's next step:
+
+* Logan Hodgins: Implement chess logic
+
+* Daniel Carpenter: Graphics for game using phaser
+
+* Francisco Martell: Special effects and Sound
+
+
 ## How to run django web server
 * For Windows Subsystem for Linux & Ubuntu: ```python3 manage.py runserver```
 
@@ -57,9 +78,6 @@ To-do list:
 * Consistent UI: Chessgame looks great on both the browser and on mobile. This means you will be able to take your chess game with you wherever you go.
 
 * Challenging AI: Chessgame provides an AI that will challenge your chess skills. Don't cry if you have no one to play with :(, with AI, friends aren't needed.
-
-## Status
-Project is: _in progress_
 
 ## Inspiration
 This project was inspired by Chess.com
