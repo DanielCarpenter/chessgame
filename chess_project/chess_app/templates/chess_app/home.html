@@ -8,11 +8,22 @@
 <script>
     // preload must stay inlined so that django can serve static assets!
     function preload() {
-        this.load.image('sprites', "{% static 'assets/bp.svg' %}");
+        this.load.image('bb', "{% static 'assets/bb.svg' %}");
+        this.load.image('bk', "{% static 'assets/bk.svg' %}");
+        this.load.image('bn', "{% static 'assets/bn.svg' %}");
+        this.load.image('bp', "{% static 'assets/bp.svg' %}");
+        this.load.image('bq', "{% static 'assets/bq.svg' %}");
+        this.load.image('br', "{% static 'assets/br.svg' %}");
+        this.load.image('wb', "{% static 'assets/wb.svg' %}");
+        this.load.image('wk', "{% static 'assets/wk.svg' %}");
+        this.load.image('wn', "{% static 'assets/wn.svg' %}");
+        this.load.image('wp', "{% static 'assets/wp.svg' %}");
+        this.load.image('wq', "{% static 'assets/wq.svg' %}");
+        this.load.image('wr', "{% static 'assets/wr.svg' %}");
     }
 </script>
 
 <!-- Load dependencies before game.js! -->
-<script src="{% static 'js/piece.js' %}"></script>
+<script src="{% static 'js/Board.js' %}"></script>
 <script src="{% static 'js/game.js' %}"></script>
 {% endblock content %}
