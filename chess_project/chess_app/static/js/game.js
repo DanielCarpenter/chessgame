@@ -1,21 +1,16 @@
 const game_dimension = 800;
 
 var config = {
-    type: Phaser.WEBGL,
+    type: Phaser.AUTO,
     width: game_dimension,
     height: game_dimension,
     scene: {
         preload: preload,
-        create: create,
-        update: update
+        create: create
     }
 };
 
 var game = new Phaser.Game(config);
-
-function preload() {
-
-}
 
 function create() {
     var graphics = this.add.graphics();
@@ -36,9 +31,7 @@ function create() {
             continue;
         else
             cell_color = (cell_color == color_tan) ? color_brown : color_tan;
-    }  
-}
+    }
 
-function update() {
-
+    this.add.sprite(100, 100, 'sprites');
 }
