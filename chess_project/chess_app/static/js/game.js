@@ -43,6 +43,10 @@ function create() {
                     gameObject.x = pointer.x;
                     gameObject.y = pointer.y;
                 });
+                this.input.on('dragend', function(pointer, gameObject, dragX, dragY) {
+                    gameObject.x = Math.round(pointer.x/50)*50 % 100 == 0 ? Math.round(pointer.x/50)*50 + 50 : Math.round(pointer.x/50)*50;
+                    gameObject.y = Math.round(pointer.y/50)*50 % 100 == 0 ? Math.round(pointer.y/50)*50 + 50 : Math.round(pointer.y/50)*50;
+                });
             }
         }
     }
