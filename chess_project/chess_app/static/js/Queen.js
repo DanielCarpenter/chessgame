@@ -1,27 +1,23 @@
-class Queen extends Phaser.GameObjects.Sprite {
+class Queen extends Piece {
     constructor(config) {
-        super(config.scene, config.x, config.y, config.img);
-        config.scene.add.existing(this);
-        this.setInteractive();
-        this.setScale(cell_size / 45);
-        config.scene.input.setDraggable(this);
-        this.color = config.img == "bq" ? "black" : "white";
-
-        this.on('dragstart', function (pointer) {
-            this.x = pointer.x;
-            this.y = pointer.y;
-        });
-
-        this.on('drag', function(pointer, gameObject, dragX, dragY) {
-            this.x = pointer.x;
-            this.y = pointer.y;
-        });
-
+        super(config);
         //sets sprite on center of closest tile based on pointer location on drop end
         this.on('dragend', function(pointer, dragX, dragY) {
-            this.x = Math.round(pointer.x/off_set)*off_set % 100 == 0 ? Math.round(pointer.x/off_set)*off_set + off_set : Math.round(pointer.x/off_set)*off_set;
-            this.y = Math.round(pointer.y/off_set)*off_set % 100 == 0 ? Math.round(pointer.y/off_set)*off_set + off_set : Math.round(pointer.y/off_set)*off_set;
-        });
+            console.log(this.x, Math.round(pointer.x/off_set)*off_set - 100, Math.round(pointer.x/off_set)*off_set + 100, this.y )
+            if((((Math.round(pointer.x/off_set)*off_set - 100) == this.prevXcoord) || ((Math.round(pointer.x/off_set)*off_set + 100) == this.prevXcoord)) && (Math.round(pointer.y/off_set)*off_set) == this.prevYcoord) {
+                this.x = Math.round(pointer.x/off_set)*off_set % 100 == 0 ? Math.round(pointer.x/off_set)*off_set + off_set : Math.round(pointer.x/off_set)*off_set;
+                this.y = Math.round(pointer.y/off_set)*off_set % 100 == 0 ? Math.round(pointer.y/off_set)*off_set + off_set : Math.round(pointer.y/off_set)*off_set;
+            }
+            else if((((Math.round(pointer.y/off_set)*off_set - 100) == this.prevYcoord) || ((Math.round(pointer.y/off_set)*off_set + 100) == this.prevYcoord)) && (Math.round(pointer.x/off_set)*off_set) == this.prevXcoord) {
+                this.x = Math.round(pointer.x/off_set)*off_set % 100 == 0 ? Math.round(pointer.x/off_set)*off_set + off_set : Math.round(pointer.x/off_set)*off_set;
+                this.y = Math.round(pointer.y/off_set)*off_set % 100 == 0 ? Math.round(pointer.y/off_set)*off_set + off_set : Math.round(pointer.y/off_set)*off_set;
+            }
+            else {
+                this.x = this.prevXcoord;
+                this.y = this.prevYcoord;
+            }
+            
 
+        });
     }
 }
