@@ -14,8 +14,6 @@ class Pawn extends Piece {
                 this.x = this.prevXcoord;
                 this.y = this.prevYcoord;
             }
-            
-
         });
     }
 }
