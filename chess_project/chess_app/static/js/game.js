@@ -1,5 +1,3 @@
-const game_dimension = 800;
-
 var config = {
     type: Phaser.AUTO,
     width: game_dimension,
@@ -18,37 +16,46 @@ function create() {
 
     // Draw inital chess board
     let board_array = board.getState();
-    const color_tan = 0xffce9e, color_brown = 0xd18b47;
-    const cell_size = game_dimension / 8;
-    const off_set = cell_size / 2;
+
     for(let i = 0; i < 8; i++) {
         for(let j = 0; j < 8; j++) {
             let cell_color = ((i+j) % 2 != 0) ? color_brown : color_tan;
 
             graphics.fillStyle(cell_color);
             graphics.fillRect(i * cell_size, j * cell_size, cell_size, cell_size);
-            
-            if(board_array[j][i] != 'ec') {
-                let sprite = this.add.sprite((i * cell_size) + off_set, (j * cell_size) + off_set, board_array[j][i]).setInteractive();
-                sprite.setScale(cell_size / 45);
+            let sprite;
+            switch(board_array[j][i]) {
+                case "bk":
+                case "wk":
+                sprite = new King({scene:this,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                break;
+                case "bn":
+                case "wn":
+                sprite = new Knight({scene:this,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                break;
+                
+                case "br":
+                case "wr":
+                sprite = new Rook({scene:this,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                break;
 
-                this.input.setDraggable(sprite);
+                case "bb":
+                case "wb":
+                sprite = new Bishop({scene:this,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                break;
 
-                this.input.on('dragstart', function (pointer, gameObject) {
-                    gameObject.x = pointer.x;
-                    gameObject.y = pointer.y;
-                });
+                case "bp":
+                case "wp":
+                sprite = new Pawn({scene:this,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                break;
+                
+                case "bq":
+                case "wq":
+                sprite = new Queen({scene:this,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                break;
+                    
+                
 
-                this.input.on('drag', function(pointer, gameObject, dragX, dragY) {
-                    gameObject.x = pointer.x;
-                    gameObject.y = pointer.y;
-                });
-
-                //sets sprite on center of closest tile based on pointer location on drop end
-                this.input.on('dragend', function(pointer, gameObject, dragX, dragY) {
-                    gameObject.x = Math.round(pointer.x/off_set)*off_set % 100 == 0 ? Math.round(pointer.x/off_set)*off_set + off_set : Math.round(pointer.x/off_set)*off_set;
-                    gameObject.y = Math.round(pointer.y/off_set)*off_set % 100 == 0 ? Math.round(pointer.y/off_set)*off_set + off_set : Math.round(pointer.y/off_set)*off_set;
-                });
             }
         }
     }
