@@ -43,9 +43,11 @@ function create() {
                     gameObject.x = pointer.x;
                     gameObject.y = pointer.y;
                 });
+
+                //sets sprite on center of closest tile based on pointer location on drop end
                 this.input.on('dragend', function(pointer, gameObject, dragX, dragY) {
-                    gameObject.x = Math.round(pointer.x/50)*50 % 100 == 0 ? Math.round(pointer.x/50)*50 + 50 : Math.round(pointer.x/50)*50;
-                    gameObject.y = Math.round(pointer.y/50)*50 % 100 == 0 ? Math.round(pointer.y/50)*50 + 50 : Math.round(pointer.y/50)*50;
+                    gameObject.x = Math.round(pointer.x/off_set)*off_set % 100 == 0 ? Math.round(pointer.x/off_set)*off_set + off_set : Math.round(pointer.x/off_set)*off_set;
+                    gameObject.y = Math.round(pointer.y/off_set)*off_set % 100 == 0 ? Math.round(pointer.y/off_set)*off_set + off_set : Math.round(pointer.y/off_set)*off_set;
                 });
             }
         }
