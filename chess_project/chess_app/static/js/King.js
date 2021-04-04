@@ -12,6 +12,10 @@ class King extends Piece {
                 this.x = Math.round(pointer.x/off_set)*off_set % 100 == 0 ? Math.round(pointer.x/off_set)*off_set + off_set : Math.round(pointer.x/off_set)*off_set;
                 this.y = Math.round(pointer.y/off_set)*off_set % 100 == 0 ? Math.round(pointer.y/off_set)*off_set + off_set : Math.round(pointer.y/off_set)*off_set;
             }
+            else if((((Math.round(pointer.y/off_set)*off_set - 100) == this.prevYcoord) || ((Math.round(pointer.y/off_set)*off_set + 100) == this.prevYcoord)) && ((Math.round(pointer.x/off_set)*off_set - 100) == this.prevXcoord) || ((Math.round(pointer.x/off_set)*off_set + 100) == this.prevXcoord)) {
+                this.x = Math.round(pointer.x/off_set)*off_set % 100 == 0 ? Math.round(pointer.x/off_set)*off_set + off_set : Math.round(pointer.x/off_set)*off_set;
+                this.y = Math.round(pointer.y/off_set)*off_set % 100 == 0 ? Math.round(pointer.y/off_set)*off_set + off_set : Math.round(pointer.y/off_set)*off_set;
+            }
             else {
                 this.x = this.prevXcoord;
                 this.y = this.prevYcoord;
