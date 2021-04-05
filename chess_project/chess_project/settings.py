@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'chess_app.apps.ChessAppConfig',
+    'chess_app',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -127,3 +127,8 @@ STATICFILES_DIRS = [
 ]
 
 ASGI_APPLICATION = 'chess_project.routing.application'
+CHANNEL_LAYERS= {
+    "default": {
+        "BACKEND": "channels.layers.InMemoryChannelLayer"
+    }
+}
