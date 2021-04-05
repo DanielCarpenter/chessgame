@@ -8,7 +8,7 @@ class Piece extends Phaser.GameObjects.Sprite {
         config.scene.input.setDraggable(this);
         this.prevXcoord = this.x;
         this.prevYcoord = this.y;
-        
+
         this.on('dragstart', function (pointer) {
             this.prevXcoord = Math.round(pointer.x/off_set)*off_set % 100 == 0 ? Math.round(pointer.x/off_set)*off_set + off_set : Math.round(pointer.x/off_set)*off_set;
             this.prevYcoord = Math.round(pointer.y/off_set)*off_set % 100 == 0 ? Math.round(pointer.y/off_set)*off_set + off_set : Math.round(pointer.y/off_set)*off_set;
