@@ -26,4 +26,20 @@ class Piece extends Phaser.GameObjects.Sprite {
         new_x = new_x <= 0 ? 50 : new_x;
         return new_x; 
     }
+    collision(x, y, pieces) {
+        x = this.r(x);
+        y = this.r(y);
+        for( let i = 0; i < pieces.length; i++ ) {
+            if(x == pieces[i].x && y == pieces[i].y && this.isWhite == pieces[i].isWhite) {
+                return true;
+            }
+            if(x == pieces[i].x && y == pieces[i].y && this.isWhite != pieces[i].isWhite)
+            {
+                pieces[i].destroy();
+                pieces.splice(i,1);
+                console.log(pieces.length);
+                return false;
+            }
+        }
+    }
 }

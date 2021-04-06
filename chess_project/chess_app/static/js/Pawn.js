@@ -3,32 +3,52 @@ class Pawn extends Piece {
         super(config);
         //sets sprite on center of closest tile based on pointer location on drop end
         this.isFirstMove = true;
-        this.on('dragend', function(pointer, dragX, dragY) {
-            console.log(this.x, this.y )
-            if(this.r(pointer.x) == this.prevX) {
-                if((((this.r(pointer.y) + 200) == this.prevY && this.isFirstMove) || ((this.r(pointer.y) + 100) == this.prevY)) && this.isWhite) {
-                    this.x = this.r(pointer.x);
-                    this.y = this.r(pointer.y);
-                    this.isFirstMove = false;
-                    this.prevX = this.r(pointer.x);
-                    this.prevY = this.r(pointer.y);
-                }
-                else if((((this.r(pointer.y) - 200) == this.prevY && this.isFirstMove) || ((this.r(pointer.y) - 100) == this.prevY)) && !this.isWhite) {
-                    this.x = this.r(pointer.x);
-                    this.y = this.r(pointer.y);
-                    this.isFirstMove = false;
-                    this.prevX = this.r(pointer.x);
-                    this.prevY = this.r(pointer.y);
-                }
-                else {
-                    this.x = this.prevX;
-                    this.y = this.prevY;
-                }
+    }
+    move(x,y) {
+        if(this.r(x) == this.prevX) {
+            if((((this.r(y) + 200) == this.prevY && this.isFirstMove) || ((this.r(y) + 100) == this.prevY)) && this.isWhite) {
+                this.isFirstMove = false;
+                return true;
             }
-            else {
-                this.x = this.prevX;
-                this.y = this.prevY;
+            if((((this.r(y) - 200) == this.prevY && this.isFirstMove) || ((this.r(y) - 100) == this.prevY)) && !this.isWhite) {
+
+
+                this.isFirstMove = false;
+                return true;
             }
-        });
+        }
+        if(this.isAttack(x, y)) {
+            this.isFirstMove = false;
+            return true;
+        }
+        return false;
+    }
+    //override
+    collision(x, y, pieces) {
+        x = this.r(x);
+        y = this.r(y);
+
+        for( let i = 0; i < pieces.length; i++ ) {
+            if(x == pieces[i].x && y == pieces[i].y && this.isWhite == pieces[i].isWhite) 
+                return true;
+            }
+            if(x == pieces[i].x && y == pieces[i].y && this.isWhite != pieces[i].isWhite && this.isAttack(x, y))
+            {          
+                pieces[i].destroy();
+                pieces.splice(i,1);
+                console.log(pieces.length);
+                return false;
+            }
+            if(x == pieces[i].x && y == pieces[i].y && this.isWhite != pieces[i].isWhite && !this.isAttack(x, y)) {
+                return true;
+            }
+        }
+    }
+
+    isAttack(x, y) {
+        if(Math.abs(this.r(x) - this.prevX) == Math.abs(this.r(y) - this.prevY)) {
+            return true;
+        }
+        return false;
     }
 }
