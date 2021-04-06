@@ -27,13 +27,12 @@ class Pawn extends Piece {
     collision(x, y, pieces) {
         x = this.r(x);
         y = this.r(y);
-
         for( let i = 0; i < pieces.length; i++ ) {
-            if(x == pieces[i].x && y == pieces[i].y && this.isWhite == pieces[i].isWhite) 
+            if(x == pieces[i].x && y == pieces[i].y && this.isWhite == pieces[i].isWhite) {
                 return true;
             }
             if(x == pieces[i].x && y == pieces[i].y && this.isWhite != pieces[i].isWhite && this.isAttack(x, y))
-            {          
+            {
                 pieces[i].destroy();
                 pieces.splice(i,1);
                 console.log(pieces.length);
@@ -46,7 +45,10 @@ class Pawn extends Piece {
     }
 
     isAttack(x, y) {
-        if(Math.abs(this.r(x) - this.prevX) == Math.abs(this.r(y) - this.prevY)) {
+        if(Math.abs(this.r(x) - this.prevX) == 100 && (this.r(y) - this.prevY) == -100 && this.isWhite) {
+            return true;
+        }
+        if(Math.abs(this.r(x) - this.prevX) == 100 && (this.r(y) - this.prevY) == 100 && !this.isWhite) {
             return true;
         }
         return false;
