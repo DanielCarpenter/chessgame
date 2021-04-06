@@ -5,19 +5,29 @@ class Pawn extends Piece {
         this.isFirstMove = true;
         this.on('dragend', function(pointer, dragX, dragY) {
             console.log(this.x, this.y )
-            if((((Math.round(pointer.y/off_set)*off_set + 200) == this.prevYcoord && this.isFirstMove) || ((Math.round(pointer.y/off_set)*off_set + 100) == this.prevYcoord)) && (Math.round(pointer.x/off_set)*off_set) == this.prevXcoord && this.color == "white") {
-                this.x = Math.round(pointer.x/off_set)*off_set % 100 == 0 ? Math.round(pointer.x/off_set)*off_set + off_set : Math.round(pointer.x/off_set)*off_set;
-                this.y = Math.round(pointer.y/off_set)*off_set % 100 == 0 ? Math.round(pointer.y/off_set)*off_set + off_set : Math.round(pointer.y/off_set)*off_set;
-                this.isFirstMove = false;
-            }
-            else if((((Math.round(pointer.y/off_set)*off_set - 200) == this.prevYcoord && this.isFirstMove) || ((Math.round(pointer.y/off_set)*off_set - 100) == this.prevYcoord)) && (Math.round(pointer.x/off_set)*off_set) == this.prevXcoord && this.color == "black") {
-                this.x = Math.round(pointer.x/off_set)*off_set % 100 == 0 ? Math.round(pointer.x/off_set)*off_set + off_set : Math.round(pointer.x/off_set)*off_set;
-                this.y = Math.round(pointer.y/off_set)*off_set % 100 == 0 ? Math.round(pointer.y/off_set)*off_set + off_set : Math.round(pointer.y/off_set)*off_set;
-                this.isFirstMove = false;
+            if(this.r(pointer.x) == this.prevX) {
+                if((((this.r(pointer.y) + 200) == this.prevY && this.isFirstMove) || ((this.r(pointer.y) + 100) == this.prevY)) && this.isWhite) {
+                    this.x = this.r(pointer.x);
+                    this.y = this.r(pointer.y);
+                    this.isFirstMove = false;
+                    this.prevX = this.r(pointer.x);
+                    this.prevY = this.r(pointer.y);
+                }
+                else if((((this.r(pointer.y) - 200) == this.prevY && this.isFirstMove) || ((this.r(pointer.y) - 100) == this.prevY)) && !this.isWhite) {
+                    this.x = this.r(pointer.x);
+                    this.y = this.r(pointer.y);
+                    this.isFirstMove = false;
+                    this.prevX = this.r(pointer.x);
+                    this.prevY = this.r(pointer.y);
+                }
+                else {
+                    this.x = this.prevX;
+                    this.y = this.prevY;
+                }
             }
             else {
-                this.x = this.prevXcoord;
-                this.y = this.prevYcoord;
+                this.x = this.prevX;
+                this.y = this.prevY;
             }
         });
     }

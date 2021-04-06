@@ -4,14 +4,12 @@ class Piece extends Phaser.GameObjects.Sprite {
         config.scene.add.existing(this);
         this.setInteractive();
         this.setScale(cell_size / 45);
-        this.color = config.img.charAt(0) == "b" ? "black" : "white";
+        this.isWhite = config.img.charAt(0) == "w" ? true : false;
         config.scene.input.setDraggable(this);
-        this.prevXcoord = this.x;
-        this.prevYcoord = this.y;
+        this.prevX = this.x;
+        this.prevY = this.y;
 
         this.on('dragstart', function (pointer) {
-            this.prevXcoord = Math.round(pointer.x/off_set)*off_set % 100 == 0 ? Math.round(pointer.x/off_set)*off_set + off_set : Math.round(pointer.x/off_set)*off_set;
-            this.prevYcoord = Math.round(pointer.y/off_set)*off_set % 100 == 0 ? Math.round(pointer.y/off_set)*off_set + off_set : Math.round(pointer.y/off_set)*off_set;
             this.x = pointer.x;
             this.y = pointer.y;
         });
@@ -20,5 +18,12 @@ class Piece extends Phaser.GameObjects.Sprite {
             this.x = pointer.x;
             this.y = pointer.y;
         });
+    }
+    //Rounding calculation to get exact space position
+    r(x) {
+        let new_x = Math.round(x/off_set) * off_set % 100 == 0 ? Math.round(x/off_set)*off_set + off_set : Math.round(x/off_set)*off_set;
+        new_x = new_x >= game_dimension ? game_dimension - off_set : new_x;
+        new_x = new_x <= 0 ? 50 : new_x;
+        return new_x; 
     }
 }
