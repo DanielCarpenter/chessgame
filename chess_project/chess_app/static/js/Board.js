@@ -53,5 +53,12 @@ class Board {
         this.board[curr_x][curr_y] = 'ec';
 
         board_changed = true;
+
+        chatSocket.send(JSON.stringify({'board': this.board})); 
+    }
+
+    setBoard(newBoard) {
+        this.board = newBoard;
+        board_changed = true;
     }
 }

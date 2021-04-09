@@ -5,8 +5,6 @@
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.54.0/dist/phaser.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
 
-<button id="submit">Button</button>
-
 {{ lobby_name|json_script:"lobby-name"}}
 <script>
     // preload must stay inlined so that django can serve static assets!
@@ -26,20 +24,8 @@
     }
 </script>
 
-<!-- Load dependencies before game.js! -->
-<script src="{% static 'js/constants.js' %}"></script>
-<script src="{% static 'js/Board.js' %}"></script>
-<script src="{% static 'js/Piece.js' %}"></script>
-<script src="{% static 'js/game.js' %}"></script>
-
 <script>
     const lobbyName = JSON.parse(document.getElementById('lobby-name').textContent);
-
-    document.querySelector('#submit').onclick = function (e) {
-        chatSocket.send(JSON.stringify({
-            'board': board.getState()
-        }))
-    }
 
     const chatSocket = new WebSocket(
         'ws://' +
@@ -47,10 +33,19 @@
         '/ws/chess_app/' +
         lobbyName + '/'
     )
+</script>
 
-    chatSocket.onmessage = function (e) {
+<!-- Load dependencies before game.js! -->
+<script src="{% static 'js/Board.js' %}"></script>
+<script src="{% static 'js/globals.js' %}"></script>
+<script src="{% static 'js/Piece.js' %}"></script>
+<script src="{% static 'js/game.js' %}"></script>
+
+<script>
+    chatSocket.onmessage = function(e) {
         const data = JSON.parse(e.data);
-        console.log(data.board);
+        console.log('new message!');
+        board.setBoard(data.board);
     }
 </script>
 

@@ -10,7 +10,6 @@ var config = {
 };
 
 var game = new Phaser.Game(config);
-var board = new Board();
 
 function create() {
     draw(this);
@@ -18,6 +17,7 @@ function create() {
 
 function update() {
     if(board_changed) {
+        console.log('update!');
         draw(this);
         board_changed = false;
     }
