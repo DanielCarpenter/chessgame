@@ -11,23 +11,23 @@ body {
   display: block;
   text-align: center;
 }
-
+//Create Column
 .column {
-  float: left;
+  float:left;
   width: 50%;
   padding: 15px;
 }
-
-.row {
+//create Row
+.row{
   content: "";
   display: table;
   clear: both;
 }
-
 /*
 Join Button CSS
 */
-.JoinButton {
+
+.JoinButton{
   display: inline-block;
   padding: 15PX 25PX;
   font-size: 24PX;
@@ -40,29 +40,22 @@ Join Button CSS
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
-
-.JoinButton:hover {
-  background-color: #3e8e41;
-}
-
-.JoinButton:active {
+.JoinButton:hover{background-color: #3e8e41}
+.JoinButton:active{
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4PX);
 }
-
 .header-box {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
-
-.description-textbox {
+.description-textbox{
   font-size: 1.75em;
 }
-
-h3 {
+h3{
   font-size: 3em;
 }
 
@@ -70,52 +63,41 @@ h1 {
   max-width: 100%;
   height: auto;
   border-style: double;
-  font-size: 8vw;
-  font-weight: 900;
+	font-size: 8vw;
+	font-weight: 900;
   width: auto;
-  background-color: grey;
-  color: #000;
-  display: block;
-  padding: 0.3em;
+	background-color: grey;
+	color: #000;
+	display: block;
+	padding: .3em;
 }
 
 h1:nth-child(2) {
   border-style: none;
-  position: absolute;
+	position: absolute;
   top: -5px;
   right: 175px;
-  background-color: transparent;
-  color: #fff;
-  clip-path: inset(-1% -1% 10% -1%);
+	background-color: transparent;
+  //display: none;
+	color: #fff;
+	clip-path: inset(-1% -1% 10% -1%);
+  // Added the negative values to prevent icky "bleed" in Chrome
 }
 
 p {
-  font-size: 2vw;
-  font-weight: 900;
-  margin-top: 1em;
-  text-align: center;
+	font-size: 2vw;
+	font-weight: 900;
+	margin-top: 1em;
+	text-align: center;
+	span {
+		display: block;
+		transform: rotate(90deg);
+		margin-top: 0.25em;
+	}
 }
-p span {
-  display: block;
-  transform: rotate(90deg);
-  margin-top: 0.25em;
-}
+//ADD Image Of board
 
 .boardimg {
   max-width: 100%;
   height: auto;
 }
-
-/*
-.center_div {
-  border: none;
-  //margin-left: auto;
-  //margin-right: auto;
-  //width: 90%;
-  background-color: transparent;
-  text-align: left;
-  padding: 8px;
-}
-*/
-
-/*# sourceMappingURL=main.css.map */
