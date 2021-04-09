@@ -48,7 +48,7 @@ class Board {
     move(curr_x, curr_y, moveObject) {
         let new_i = moveObject['i'];
         let new_j = moveObject['j'];
-
+ 
         this.board[new_i][new_j] = this.board[curr_x][curr_y];
         this.board[curr_x][curr_y] = 'ec';
 

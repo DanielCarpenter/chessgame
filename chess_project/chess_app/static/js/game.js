@@ -18,7 +18,6 @@ function create() {
 
 function update() {
     if(board_changed) {
-        console.log('update');
         draw(this);
         board_changed = false;
     }
@@ -36,35 +35,38 @@ function draw(object) {
 
             graphics.fillStyle(cell_color);
             graphics.fillRect(i * cell_size, j * cell_size, cell_size, cell_size);
+            let sprite_conf = {scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]};
             let sprite;
+
             switch(board_array[j][i]) {
                 case "bk":
                 case "wk":
-                sprite = new King({scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                sprite = new Piece(sprite_conf, i, j, move_king);
                 break;
+
                 case "bn":
                 case "wn":
-                sprite = new Knight({scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                sprite = new Piece(sprite_conf, i, j, move_knight);
                 break;
                 
                 case "br":
                 case "wr":
-                sprite = new Rook({scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                sprite = new Piece(sprite_conf, i, j, move_rook);
                 break;
 
                 case "bb":
                 case "wb":
-                sprite = new Bishop({scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                sprite = new Piece(sprite_conf, i, j, move_bishop);
                 break;
 
                 case "bp":
                 case "wp":
-                sprite = new Pawn({scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]}, i, j);
+                sprite = new Piece(sprite_conf, i, j, move_pawn);
                 break;
                 
                 case "bq":
                 case "wq":
-                sprite = new Queen({scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                sprite = new Piece(sprite_conf, i, j, move_queen);
                 break;
             }
         }
