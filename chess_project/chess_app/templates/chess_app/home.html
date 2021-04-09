@@ -1,9 +1,42 @@
 {% extends "chess_app/base.html" %}
 {% load static %}
 {% block content %}
-<h1>Home Page!</h1>
-<button onclick="create_lobby()">Join Multiplayer Lobby!</button>
 
+<!--Different Home Text (Checkered) Experiment -->
+<!--<div class="container">-->
+	<!-- code here -->
+	<div class="header-box">
+		<h1>THE CHESS GAME</h1>
+		<h1>THE CHESS GAME</h1>
+	</div>
+		<!--<p>Checkmate<span>:)</span></p>-->
+
+
+
+<!--End of checkered Home Text Experiment -->
+<div class="row">
+  <div class="column" >
+    <div class="description-textbox">
+      <h2>Free Play Style!</h2>
+      <p>Our Chess Game offers a unique "Free Play" Style that
+        will let your imagination run wild! Play in a crazy way
+        along with all your friends!!</p>
+      </div>
+    </div>
+
+  <div class="column">
+    <!-- Image add Board -->
+    <img class="boardimg" src="{% static 'chess_app/board.png' %}"
+          alt="board">
+          </div>
+
+
+
+    </div>
+
+<!--This is the join button -->
+<button class="JoinButton" onclick="create_lobby()">Join Multiplayer Lobby!</button>
+<p>Checkmate<span>:)</span></p>
 <script>
     function create_lobby() {
         let lobby_number = Math.floor((Math.random() * 1000) + 1);
