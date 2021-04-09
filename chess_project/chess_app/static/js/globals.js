@@ -8,6 +8,7 @@ var board = new Board();
 
 
 // Move logic functions for chess pieces
+// These define the possibles moves a piece may take given the pieces array indices
 function move_pawn(i, j) {
     let move_logic = [{'i':i-1, 'j':j}, {'i':i-1, 'j':j-1}, {'i':i-1, 'j':j+1}];
     return move_logic; 

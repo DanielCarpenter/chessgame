@@ -1,5 +1,5 @@
 class Board {
-    constructor(config) {
+    constructor() {
         this.board = [['br','bn','bb','bq','bk','bb','bn','br'],
                       ['bp','bp','bp','bp','bp','bp','bp','bp'],
                       ['ec','ec','ec','ec','ec','ec','ec','ec'],
@@ -45,6 +45,14 @@ class Board {
         return possible_moves;
     }
  
+    /* Moves a piece on the board, send updated board to other player
+     * curr_x: current i index of the piece.
+     * curr_y: current j index of the piece.
+     * moveObject: object representing selected move, chosen from possible moves
+     * 
+     * Will set board_changed to true!
+     * Websocket will send new board information to other player!
+     */
     move(curr_x, curr_y, moveObject) {
         let new_i = moveObject['i'];
         let new_j = moveObject['j'];
@@ -57,6 +65,11 @@ class Board {
         chatSocket.send(JSON.stringify({'board': this.board})); 
     }
 
+    /* Sets board to a new board recieved by websocket 
+     * websocket calls function to update board!
+     * board_changed is set so update() method in game.js will know
+     * to draw a new board.
+     */
     setBoard(newBoard) {
         this.board = newBoard;
         board_changed = true;
