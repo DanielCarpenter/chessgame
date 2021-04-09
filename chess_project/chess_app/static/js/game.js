@@ -58,6 +58,8 @@ function create() {
                 chess.push(sprite);
                 sprite.on('dragend', function(pointer, dragX, dragY) {
                     if(this.move(pointer.x, pointer.y) && !this.collision(pointer.x, pointer.y, chess)) {
+                        board.updatePosition(this.r(pointer.x), this.r(pointer.y), this.piece);
+                        board.updatePosition(this.prevX, this.prevY, 'ec');
                         this.x = this.r(pointer.x);
                         this.y = this.r(pointer.y);
                         this.prevX = this.r(this.x);
@@ -66,6 +68,7 @@ function create() {
                     else {
                         this.x = this.prevX;
                         this.y = this.prevY;
+                        console.log(this.x, this.y, "current after bad move")
                     }
                 });
             }
