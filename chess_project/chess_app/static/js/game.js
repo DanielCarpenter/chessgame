@@ -4,7 +4,8 @@ var config = {
     height: game_dimension,
     scene: {
         preload: preload,
-        create: create
+        create: create,
+        update: update
     }
 };
 
@@ -12,7 +13,19 @@ var game = new Phaser.Game(config);
 var board = new Board();
 
 function create() {
-    var graphics = this.add.graphics();
+    draw(this);
+}
+
+function update() {
+    if(board_changed) {
+        console.log('update');
+        draw(this);
+        board_changed = false;
+    }
+}
+
+function draw(object) {
+    var graphics = object.add.graphics();
 
     // Draw inital chess board
     let board_array = board.getState();
@@ -27,35 +40,32 @@ function create() {
             switch(board_array[j][i]) {
                 case "bk":
                 case "wk":
-                sprite = new King({scene:this,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                sprite = new King({scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
                 break;
                 case "bn":
                 case "wn":
-                sprite = new Knight({scene:this,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                sprite = new Knight({scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
                 break;
                 
                 case "br":
                 case "wr":
-                sprite = new Rook({scene:this,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                sprite = new Rook({scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
                 break;
 
                 case "bb":
                 case "wb":
-                sprite = new Bishop({scene:this,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                sprite = new Bishop({scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
                 break;
 
                 case "bp":
                 case "wp":
-                sprite = new Pawn({scene:this,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                sprite = new Pawn({scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]}, i, j);
                 break;
                 
                 case "bq":
                 case "wq":
-                sprite = new Queen({scene:this,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
+                sprite = new Queen({scene:object,x:((i * cell_size) + off_set), y:(j * cell_size) + off_set, img:board_array[j][i]});
                 break;
-                    
-                
-
             }
         }
     }
