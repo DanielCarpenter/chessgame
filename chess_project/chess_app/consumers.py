@@ -2,7 +2,6 @@ from channels.generic.websocket import AsyncWebsocketConsumer
 import json
 
 class LobbyConsumer(AsyncWebsocketConsumer):
-    #Enable websocket connection
     async def connect(self):
         self.room_name = self.scope['url_route']['kwargs']['lobby_name']
         self.room_group_name = 'chess_app_%s' % self.room_name
@@ -14,25 +13,27 @@ class LobbyConsumer(AsyncWebsocketConsumer):
 
         await self.accept()
 
-        await self.channel_layer.group_send(
-            self.room_group_name,
-            {
-                'type': 'tester_message',
-                'tester': 'hello world!',
-            }
-        )
-
-    # needs
-    async def tester_message(self, event):
-        tester = event['tester']
-
-        await self.send(text_data=json.dumps({
-            'tester': tester
-        }))
-
-    #Disconnect websocket connection
     async def disconnect(self, close_code):
         await self.channel_layer.group_discard(
             self.room_group_name,
             self.channel_name
         )
+
+    async def receive(self, text_data):
+        board_data_json = json.loads(text_data)
+        board = board_data_json['board']
+        
+        await self.channel_layer.group_send(
+            self.room_group_name,
+            {
+                'type': 'board_data',
+                'board': board,
+            }
+        )
+
+    async def board_data(self, event):
+        board = event['board']
+
+        await self.send(text_data=json.dumps({
+            'board': board,
+        }))

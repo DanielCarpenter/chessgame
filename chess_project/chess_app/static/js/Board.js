@@ -14,26 +14,51 @@ class Board {
     getState() {
         return this.board;
     }
-    arrayToGrid(x, y) {
-        var gridX = game_dimension/8 * x + off_set;
-        var gridY = game_dimension/8 * y + off_set;
-        return { gridX, gridY };
 
+    /* Query possible moves from chess board
+    * curr_x: current i index of the piece.
+    * curr_y: current j index of the piece.
+    * move_logic: function that returns an array of objects that each represent
+    *               a potential move. The object must have keys 'i' and 'j'!
+    * returns: an array of objects that each represent a move that the player
+    *               may make on the board.
+    */
+    queryMove(curr_x, curr_y, move_logic) {
+        let potential_moves = move_logic(curr_x, curr_y);
+        let possible_moves = [];
+
+        for(let idx = 0; idx < potential_moves.length; idx++) {
+            let moveObject = potential_moves[idx];
+
+            let i = moveObject['i'];
+            let j = moveObject['j'];
+
+            let outOfArray = (i < 0 || j < 0) || (i > 7 || j > 7);
+            if(outOfArray) continue;
+
+
+            let pieceCollision = this.board[i][j] != 'ec';
+            if(!pieceCollision)
+                possible_moves.push(moveObject);
+        }
+
+        return possible_moves;
     }
-    gridToArray(x, y) {
-        var arrayX = (x - off_set) / (2 * off_set);
-        var arrayY = (y - off_set) / (2 * off_set);
-        console.log(arrayX, arrayY);
-        return { arrayX, arrayY};
+ 
+    move(curr_x, curr_y, moveObject) {
+        let new_i = moveObject['i'];
+        let new_j = moveObject['j'];
+ 
+        this.board[new_i][new_j] = this.board[curr_x][curr_y];
+        this.board[curr_x][curr_y] = 'ec';
+
+        board_changed = true;
+
+        chatSocket.send(JSON.stringify({'board': this.board})); 
     }
-    checkSpace(x, y) {
-        var grid_coord = this.gridToArray(x,y);
-        console.log("checking:", grid_coord.arrayX, grid_coord.arrayY);
-        return this.board[grid_coord.arrayY][grid_coord.arrayX];
+
+    setBoard(newBoard) {
+        this.board = newBoard;
+        board_changed = true;
     }
-    updatePosition(x,y, piece) {
-        var grid_coord = this.gridToArray(x,y);
-        this.board[grid_coord.arrayY][grid_coord.arrayX] = piece;
-    }
-    
 }

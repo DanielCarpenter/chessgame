@@ -22,32 +22,31 @@
         this.load.image('wq', "{% static 'assets/wq.svg' %}");
         this.load.image('wr', "{% static 'assets/wr.svg' %}");
     }
+</script>
 
+<script>
     const lobbyName = JSON.parse(document.getElementById('lobby-name').textContent);
 
     const chatSocket = new WebSocket(
         'ws://' +
         window.location.host +
-        '/ws/chess_app/' + 
+        '/ws/chess_app/' +
         lobbyName + '/'
     )
-
-    chatSocket.onmessage = function(e) {
-        const data = JSON.parse(e.data);
-        console.log(data);
-    }
 </script>
 
 <!-- Load dependencies before game.js! -->
-<script src="{% static 'js/constants.js' %}"></script>
 <script src="{% static 'js/Board.js' %}"></script>
+<script src="{% static 'js/globals.js' %}"></script>
 <script src="{% static 'js/Piece.js' %}"></script>
-<script src="{% static 'js/Queen.js' %}"></script>
-<script src="{% static 'js/Bishop.js' %}"></script>
-<script src="{% static 'js/Pawn.js' %}"></script>
-<script src="{% static 'js/Knight.js' %}"></script>
-<script src="{% static 'js/Rook.js' %}"></script>
-<script src="{% static 'js/King.js' %}"></script>
 <script src="{% static 'js/game.js' %}"></script>
+
+<script>
+    chatSocket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        console.log('new message!');
+        board.setBoard(data.board);
+    }
+</script>
 
 {% endblock content %}
