@@ -123,6 +123,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = "/static/"
+
 ASGI_APPLICATION = 'chess_project.routing.application'
 CHANNEL_LAYERS= {
     "default": {
